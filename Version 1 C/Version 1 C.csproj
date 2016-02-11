@@ -56,12 +56,6 @@
     <Compile Include="clsSculpture.cs" />
     <Compile Include="clsWork.cs" />
     <Compile Include="clsWorksList.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmArtist.cs">
       <SubType>Form</SubType>
     </Compile>
