@@ -11,7 +11,7 @@ namespace Version_1_C
     public partial class frmMain : Form
     {
         /// <summary>
-        /// Matthias Otto, Student, 2010-2016
+        /// Matthias Otto, Student, 2010-2016, testing
         /// </summary>
         public frmMain()
         {
