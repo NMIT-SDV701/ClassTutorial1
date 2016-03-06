@@ -56,6 +56,7 @@
     <Compile Include="clsSculpture.cs" />
     <Compile Include="clsWork.cs" />
     <Compile Include="clsWorksList.cs" />
+<!-- To fix Form Designer problem, copy and paste from here -->
     <Compile Include="frmArtist.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +139,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+<!-- to here -->    
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
