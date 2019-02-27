@@ -16,6 +16,23 @@ namespace Version_1_C
             InitializeComponent();
         }
 
+        public virtual void SetDetails(string prName, DateTime prDate, decimal prValue,
+                                       float prWidth, float prHeight, string prType)
+        {
+            base.SetDetails(prName, prDate, prValue);
+            txtWidth.Text = Convert.ToString(prWidth);
+            txtHeight.Text = Convert.ToString(prHeight);
+            txtType.Text = prType;
+        }
+
+        public virtual void GetDetails(ref string prName, ref DateTime prDate, ref decimal prValue,
+                                       ref float prWidth, ref float prHeight, ref string prType)
+        {
+            base.GetDetails(ref prName, ref prDate, ref prValue);
+            prWidth = Convert.ToSingle(txtWidth.Text);
+            prHeight = Convert.ToSingle(txtHeight.Text);
+            prType = txtType.Text;
+        }
     }
 }
 
