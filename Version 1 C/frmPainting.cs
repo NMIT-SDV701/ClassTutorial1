@@ -16,7 +16,7 @@ namespace Version_1_C
             InitializeComponent();
         }
 
-        public virtual void SetDetails(string prName, DateTime prDate, decimal prValue,
+        public void SetDetails(string prName, DateTime prDate, decimal prValue,
                                        float prWidth, float prHeight, string prType)
         {
             base.SetDetails(prName, prDate, prValue);
@@ -25,7 +25,7 @@ namespace Version_1_C
             txtType.Text = prType;
         }
 
-        public virtual void GetDetails(ref string prName, ref DateTime prDate, ref decimal prValue,
+        public void GetDetails(ref string prName, ref DateTime prDate, ref decimal prValue,
                                        ref float prWidth, ref float prHeight, ref string prType)
         {
             base.GetDetails(ref prName, ref prDate, ref prValue);
