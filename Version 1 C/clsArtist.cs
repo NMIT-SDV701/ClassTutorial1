@@ -8,7 +8,6 @@ namespace Version_1_C
         private string _Name;
         private string _Speciality;
         private string _Phone;
-        private byte _SortOrder;
         private decimal _TotalValue;
 
         private clsWorksList _WorksList;
@@ -29,7 +28,6 @@ namespace Version_1_C
                 _Name, 
                 _Speciality, 
                 _Phone, 
-                _SortOrder, 
                 _WorksList, 
                 _ArtistList);
 
@@ -38,8 +36,7 @@ namespace Version_1_C
                 _ArtistDialog.GetDetails(
                     ref _Name, 
                     ref _Speciality, 
-                    ref _Phone, 
-                    ref _SortOrder);
+                    ref _Phone);
 
                 _TotalValue = _WorksList.GetTotalValue();
             }

@@ -7,9 +7,13 @@ namespace Version_1_C
     [Serializable()] 
     public class clsWorksList : ArrayList
     {
+        private byte _SortOrder;
+
         private static clsNameComparer _NameComparer = new clsNameComparer();
         private static clsDateComparer _DateComparer = new clsDateComparer();
-        
+
+        public byte SortOrder { get => _SortOrder; set => _SortOrder = value; }
+
         public void AddWork()
         {
             clsWork lcWork = clsWork.NewWork();
