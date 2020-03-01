@@ -43,5 +43,6 @@ namespace Version_1_C
             }
             return lcTotal;
         }
+
     }
 }

@@ -20,18 +20,21 @@ namespace Version_1_C
          {
              char lcReply;
              InputBox inputBox = new InputBox("Enter P for Painting, S for Sculpture and H for Photograph");
-             //inputBox.ShowDialog();
-             //if (inputBox.getAction() == true)
+             //inputBox.ShowDialog();                                                                           allready commented
+             //if (inputBox.getAction() == true)                                                                allready commented
              if (inputBox.ShowDialog() == System.Windows.Forms.DialogResult.OK)
              {
                  lcReply = Convert.ToChar(inputBox.getAnswer());
 
                  switch (char.ToUpper(lcReply))
                  {
-                     case 'P': return new clsPainting();
-                     case 'S': return new clsSculpture();
-                     case 'H': return new clsPhotograph();
-                     default: return null;
+                    case 'P': return new clsPainting();
+                    case 'p': return new clsPainting();
+                    case 'S': return new clsSculpture();
+                    case 's': return new clsSculpture();
+                    case 'H': return new clsPhotograph();
+                    case 'h': return new clsPhotograph();
+                    default: return null;
                  }
              }
              else
@@ -60,5 +63,6 @@ namespace Version_1_C
         {
             return _Value;
         }
+
     }
 }

@@ -38,8 +38,13 @@ namespace Version_1_C
             lblTotal.Text = Convert.ToString(theWorksList.GetTotalValue());
         }
 
-        public void SetDetails(string prName, string prSpeciality, string prPhone, byte prSortOrder,
-                               clsWorksList prWorksList, clsArtistList prArtistList)
+        public void SetDetails(
+            string prName, 
+            string prSpeciality, 
+            string prPhone, 
+            byte prSortOrder,
+            clsWorksList prWorksList, 
+            clsArtistList prArtistList)
         {
             txtName.Text = prName;
             txtSpeciality.Text = prSpeciality;
@@ -50,7 +55,11 @@ namespace Version_1_C
             updateDisplay();
         }
 
-        public void GetDetails(ref string prName, ref string prSpeciality, ref string prPhone, ref byte prSortOrder)
+        public void GetDetails(
+            ref string prName, 
+            ref string prSpeciality, 
+            ref string prPhone, 
+            ref byte prSortOrder)
         {
             prName = txtName.Text;
             prSpeciality = txtSpeciality.Text;
