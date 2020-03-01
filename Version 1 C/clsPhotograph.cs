@@ -36,6 +36,7 @@ namespace Version_1_C
                    ref _Width,
                    ref _Height,
                    ref _Type);
+
             }
         }
     }

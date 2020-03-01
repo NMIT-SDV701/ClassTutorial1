@@ -1,10 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 
 namespace Version_1_C
 {
@@ -17,21 +11,31 @@ namespace Version_1_C
             InitializeComponent();
         }
 
-        public void SetDetails(string prName, DateTime prDate, decimal prValue,
-                               float prWidth, float prHeight, string prType)
+        public void SetDetails(
+            string prName, 
+            DateTime prDate, 
+            decimal prValue,
+            float prWeight, 
+            string prMaterial, 
+            string prType)
         {
             base.SetDetails(prName, prDate, prValue);
-            txtMaterial.Text = Convert.ToString(prWidth);
-            txtWeight.Text = Convert.ToString(prHeight);
+            txtWeight.Text = Convert.ToString(prWeight);
+            txtMaterial.Text = prMaterial;
             txtType.Text = prType;
         }
 
-        public void GetDetails(ref string prName, ref DateTime prDate, ref decimal prValue,
-                                       ref float prWidth, ref float prHeight, ref string prType)
+        public void GetDetails(
+            ref string prName, 
+            ref DateTime prDate, 
+            ref decimal prValue,
+            ref float prWeight, 
+            ref string prMaterial, 
+            ref string prType)
         {
             base.GetDetails(ref prName, ref prDate, ref prValue);
-            prWidth = Convert.ToSingle(txtMaterial.Text);
-            prHeight = Convert.ToSingle(txtWeight.Text);
+            prWeight = Convert.ToSingle(txtWeight.Text);
+            prMaterial = txtMaterial.Text;
             prType = txtType.Text;
         }
 
