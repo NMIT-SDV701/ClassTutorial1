@@ -7,8 +7,8 @@ namespace Version_1_C
     [Serializable()] 
     public class clsWorksList : ArrayList
     {
-        private static clsNameComparer theNameComparer = new clsNameComparer();
-        private static clsDateComparer theDateComparer = new clsDateComparer();
+        private static clsNameComparer _NameComparer = new clsNameComparer();
+        private static clsDateComparer _DateComparer = new clsDateComparer();
         
         public void AddWork()
         {
@@ -55,12 +55,12 @@ namespace Version_1_C
 
          public void SortByName()
          {
-             Sort(theNameComparer);
+             Sort(_NameComparer);
          }
     
         public void SortByDate()
         {
-            Sort(theDateComparer);
+            Sort(_DateComparer);
         }
     }
 }

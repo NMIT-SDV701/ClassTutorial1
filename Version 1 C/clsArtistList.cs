@@ -14,7 +14,7 @@ namespace Version_1_C
             if (lcArtist != null)
                 lcArtist.EditDetails();
             else
-                MessageBox.Show("Sorry no artist by this name");
+                MessageBox.Show("Sorry no artist by this _Name");
         }
        
         public void NewArtist()

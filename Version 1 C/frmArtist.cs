@@ -19,7 +19,7 @@ namespace Version_1_C
         private clsWorksList theWorksList;
         private byte sortOrder; // 0 = Name, 1 = Date
 
-        private void UpdateDisplay()
+        private void updateDisplay()
         {
             txtName.Enabled = txtName.Text == "";
             if (sortOrder == 0)
@@ -47,7 +47,7 @@ namespace Version_1_C
             theArtistList = prArtistList;
             theWorksList = prWorksList;
             sortOrder = prSortOrder;
-            UpdateDisplay();
+            updateDisplay();
         }
 
         public void GetDetails(ref string prName, ref string prSpeciality, ref string prPhone, ref byte prSortOrder)
@@ -61,13 +61,13 @@ namespace Version_1_C
         private void btnDelete_Click(object sender, EventArgs e)
         {
             theWorksList.DeleteWork(lstWorks.SelectedIndex);
-            UpdateDisplay();
+            updateDisplay();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             theWorksList.AddWork();
-            UpdateDisplay();
+            updateDisplay();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -83,7 +83,7 @@ namespace Version_1_C
             if (txtName.Enabled && txtName.Text != "")
                 if (theArtistList.Contains(txtName.Text))
                 {
-                    MessageBox.Show("Artist with that name already exists!");
+                    MessageBox.Show("Artist with that _Name already exists!");
                     return false;
                 }
                 else
@@ -98,14 +98,14 @@ namespace Version_1_C
             if (lcIndex >= 0)
             {
                 theWorksList.EditWork(lcIndex);
-                UpdateDisplay();
+                updateDisplay();
             }
         }
 
         private void rbByDate_CheckedChanged(object sender, EventArgs e)
         {
             sortOrder = Convert.ToByte(rbByDate.Checked);
-            UpdateDisplay();
+            updateDisplay();
         }
 
     }

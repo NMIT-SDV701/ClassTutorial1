@@ -21,7 +21,7 @@ namespace Version_1_C
         private clsArtistList theArtistList = new clsArtistList();
         private const string fileName = "gallery.xml";
 
-        private void UpdateDisplay()
+        private void updateDisplay()
         {
             string[] lcDisplayList = new string[theArtistList.Count];
 
@@ -34,7 +34,7 @@ namespace Version_1_C
         private void btnAdd_Click(object sender, EventArgs e)
         {
             theArtistList.NewArtist();
-            UpdateDisplay();
+            updateDisplay();
         }
 
         private void lstArtists_DoubleClick(object sender, EventArgs e)
@@ -45,13 +45,13 @@ namespace Version_1_C
             if (lcKey != null)
             {
                 theArtistList.EditArtist(lcKey);
-                UpdateDisplay();
+                updateDisplay();
             }
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            Save();
+            save();
             Close();
         }
 
@@ -64,11 +64,11 @@ namespace Version_1_C
             {
                 lstArtists.ClearSelected();
                 theArtistList.Remove(lcKey);
-                UpdateDisplay();
+                updateDisplay();
             }
         }
 
-        private void Save()
+        private void save()
         {
             try
             {
@@ -81,11 +81,11 @@ namespace Version_1_C
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "File Save Error");
+                MessageBox.Show(e.Message, "File save Error");
             }
         }
 
-        private void Retrieve()
+        private void retrieve()
         {
             try
             {
@@ -94,20 +94,20 @@ namespace Version_1_C
                     new System.Runtime.Serialization.Formatters.Soap.SoapFormatter();
 
                 theArtistList = (clsArtistList)lcFormatter.Deserialize(lcFileStream);
-                UpdateDisplay();
+                updateDisplay();
                 lcFileStream.Close();
             }
 
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "File Retrieve Error");
+                MessageBox.Show(e.Message, "File retrieve Error");
             }
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            Retrieve();
-            UpdateDisplay();
+            retrieve();
+            updateDisplay();
         }
     }
 }
