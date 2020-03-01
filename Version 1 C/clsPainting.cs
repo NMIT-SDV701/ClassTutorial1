@@ -19,10 +19,23 @@ namespace Version_1_C
             {
                 paintDialog = new frmPainting();
             }
-            paintDialog.SetDetails(_Name, _Date, _Value, _Width, _Height, _Type);
+            paintDialog.SetDetails(
+                _Name, 
+                _Date, 
+                _Value, 
+                _Width, 
+                _Height, 
+                _Type);
+
             if(paintDialog.ShowDialog() == DialogResult.OK)
             {
-               paintDialog.GetDetails(ref _Name, ref _Date, ref _Value, ref _Width, ref _Height, ref _Type);
+               paintDialog.GetDetails(
+                   ref _Name, 
+                   ref _Date, 
+                   ref _Value, 
+                   ref _Width, 
+                   ref _Height, 
+                   ref _Type);
             }
         }
     }
