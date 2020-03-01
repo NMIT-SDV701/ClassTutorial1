@@ -10,6 +10,9 @@ namespace Version_1_C
 {
     public partial class frmArtist : Form
     {
+        private clsArtist _Artist;
+
+
         public frmArtist()
         {
             InitializeComponent();
@@ -38,30 +41,41 @@ namespace Version_1_C
             lblTotal.Text = Convert.ToString(_WorksList.GetTotalValue());
         }
 
-        public void SetDetails(
-            string prName, 
-            string prSpeciality, 
-            string prPhone, 
-            clsWorksList prWorksList, 
-            clsArtistList prArtistList)
+        public void SetDetails(clsArtist prArtist)
         {
-            txtName.Text = prName;
-            txtSpeciality.Text = prSpeciality;
-            txtPhone.Text = prPhone;
-            _ArtistList = prArtistList;
-            _WorksList = prWorksList;
-            _SortOrder = _WorksList.SortOrder;
+            _Artist = prArtist;
+            updateForm();
             updateDisplay();
+            ShowDialog();
         }
 
-        public void GetDetails(
-            ref string prName, 
-            ref string prSpeciality, 
-            ref string prPhone)
+        private void updateForm()
         {
-            prName = txtName.Text;
-            prSpeciality = txtSpeciality.Text;
-            prPhone = txtPhone.Text;
+            txtName.Text = _Artist.Name;
+            txtSpeciality.Text = _Artist.Speciality;
+            txtPhone.Text = _Artist.Phone;
+            _ArtistList = _Artist.ArtistList;
+            _WorksList = _Artist.WorksList;
+            _SortOrder = _WorksList.SortOrder;
+        }
+
+
+        //public void GetDetails(
+        //    ref string prName, 
+        //    ref string prSpeciality, 
+        //    ref string prPhone)
+        //{
+        //    prName = txtName.Text;
+        //    prSpeciality = txtSpeciality.Text;
+        //    prPhone = txtPhone.Text;
+        //    _SortOrder = _WorksList.SortOrder;
+        //}
+
+        private void pushData()
+        {
+            _Artist.Name = txtName.Text;
+            _Artist.Speciality = txtSpeciality.Text;
+            _Artist.Phone = txtPhone.Text;
             _SortOrder = _WorksList.SortOrder;
         }
 
@@ -81,6 +95,7 @@ namespace Version_1_C
         {
             if (isValid())
             {
+                pushData();
                 DialogResult = DialogResult.OK;
             }
         }
