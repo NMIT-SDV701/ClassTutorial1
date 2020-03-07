@@ -15,58 +15,61 @@ namespace Version_1_C
             InitializeComponent();
         }
 
-        private clsArtistList theArtistList;
-        private clsWorksList theWorksList;
-        private byte sortOrder; // 0 = Name, 1 = Date
+        private clsArtistList _ArtistList;
+        private clsWorksList _WorksList;
+        private byte _SortOrder; // 0 = Name, 1 = Date
 
         private void UpdateDisplay()
         {
             txtName.Enabled = txtName.Text == "";
-            if (sortOrder == 0)
+            if (_SortOrder == 0)
             {
-                theWorksList.SortByName();
+                _WorksList.SortByName();
                 rbByName.Checked = true;
             }
             else
             {
-                theWorksList.SortByDate();
+                _WorksList.SortByDate();
                 rbByDate.Checked = true;
             }
 
             lstWorks.DataSource = null;
-            lstWorks.DataSource = theWorksList;
-            lblTotal.Text = Convert.ToString(theWorksList.GetTotalValue());
+            lstWorks.DataSource = _WorksList;
+            lblTotal.Text = Convert.ToString(_WorksList.GetTotalValue());
         }
 
-        public void SetDetails(string prName, string prSpeciality, string prPhone, byte prSortOrder,
-                               clsWorksList prWorksList, clsArtistList prArtistList)
+        public void SetDetails(string _Name, string _Speciality, string _Phone, 
+                               clsWorksList _WorksList, clsArtistList _ArtistList)
         {
-            txtName.Text = prName;
-            txtSpeciality.Text = prSpeciality;
-            txtPhone.Text = prPhone;
-            theArtistList = prArtistList;
-            theWorksList = prWorksList;
-            sortOrder = prSortOrder;
+            txtName.Text = _Name;
+            txtSpeciality.Text = _Speciality;
+            txtPhone.Text = _Phone;
+            this._ArtistList = _ArtistList;
+            this._WorksList = _WorksList;
+            _SortOrder = _WorksList.SortOrder;
+
+
             UpdateDisplay();
         }
 
-        public void GetDetails(ref string prName, ref string prSpeciality, ref string prPhone, ref byte prSortOrder)
+        public void GetDetails(ref string _Name, ref string _Speciality, ref string _Phone)
         {
-            prName = txtName.Text;
-            prSpeciality = txtSpeciality.Text;
-            prPhone = txtPhone.Text;
-            prSortOrder = sortOrder;
+            _Name = txtName.Text;
+            _Speciality = txtSpeciality.Text;
+            _Phone = txtPhone.Text;
+            _SortOrder = _WorksList.SortOrder;
+           
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            theWorksList.DeleteWork(lstWorks.SelectedIndex);
+            _WorksList.DeleteWork(lstWorks.SelectedIndex);
             UpdateDisplay();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            theWorksList.AddWork();
+            _WorksList.AddWork();
             UpdateDisplay();
         }
 
@@ -81,7 +84,7 @@ namespace Version_1_C
         public virtual Boolean isValid()
         {
             if (txtName.Enabled && txtName.Text != "")
-                if (theArtistList.Contains(txtName.Text))
+                if (_ArtistList.Contains(txtName.Text))
                 {
                     MessageBox.Show("Artist with that name already exists!");
                     return false;
@@ -94,17 +97,17 @@ namespace Version_1_C
 
         private void lstWorks_DoubleClick(object sender, EventArgs e)
         {
-            int lcIndex = lstWorks.SelectedIndex;
-            if (lcIndex >= 0)
+            int _Index = lstWorks.SelectedIndex;
+            if (_Index >= 0)
             {
-                theWorksList.EditWork(lcIndex);
+                _WorksList.EditWork(_Index);
                 UpdateDisplay();
             }
         }
 
         private void rbByDate_CheckedChanged(object sender, EventArgs e)
         {
-            sortOrder = Convert.ToByte(rbByDate.Checked);
+            _SortOrder = Convert.ToByte(rbByDate.Checked);
             UpdateDisplay();
         }
 

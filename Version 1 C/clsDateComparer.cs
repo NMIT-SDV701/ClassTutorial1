@@ -7,12 +7,12 @@ namespace Version_1_C
     {
         public int Compare(Object x, Object y)
         {
-            clsWork lcWorkX = (clsWork)x;
-            clsWork lcWorkY = (clsWork)y;
-            DateTime lcDateX = lcWorkX.GetDate();
-            DateTime lcDateY = lcWorkY.GetDate();
+            clsWork _WorkX = (clsWork)x;
+            clsWork _WorkY = (clsWork)y;
+            DateTime _DateX = _WorkX.GetDate();
+            DateTime lcDateY = _WorkY.GetDate();
 
-            return lcDateX.CompareTo(lcDateY);
+            return _DateX.CompareTo(lcDateY);
         }
     }
 }
