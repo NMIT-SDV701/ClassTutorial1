@@ -10,31 +10,39 @@ namespace Version_1_C
 {
     public partial class frmWork : Form
     {
-
+        protected ClsWork _Work;
         public frmWork()
         {
             InitializeComponent();
         }
 
-        public void SetDetails(string _Name, DateTime _Date, decimal _Value)
+        public void SetDetails(ClsWork prWork)
         {
-            txtName.Text = _Name;
-            txtCreation.Text = _Date.ToShortDateString();
-            txtValue.Text = Convert.ToString(_Value);
+            _Work = prWork;
+            updateForm();
+            ShowDialog();
         }
 
-        public void GetDetails(ref string _Name, ref DateTime _Date, ref decimal _Value)
+        protected virtual void updateForm()
         {
-            _Name = txtName.Text;
-            _Date = Convert.ToDateTime(txtCreation.Text);
-            _Value = Convert.ToDecimal(txtValue.Text);
+            txtName.Text = _Work.Name;
+            txtCreation.Text = _Work.Date.ToShortDateString();
+            txtValue.Text = _Work.Value.ToString();
         }
+
+        protected virtual void pushData()
+        {
+            _Work.Name = txtName.Text;
+            _Work.Date = DateTime.Parse(txtCreation.Text);
+            _Work.Value = decimal.Parse(txtValue.Text);
+        }
+
 
         private void btnOK_Click(object sender, EventArgs e)
         {
             if (isValid() == true)
             {
-                DialogResult = DialogResult.OK;
+                pushData();
                 Close();
             }
         }

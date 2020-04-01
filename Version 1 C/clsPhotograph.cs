@@ -4,26 +4,27 @@ using System.Windows.Forms;
 namespace Version_1_C
 {
     [Serializable()]
-    public class ClsPhotograph : clsWork
+    public class ClsPhotograph : ClsWork
     {
-        private float _Width;
-        private float _Height;
-        private string _Type;
+        public float _Width;
+        public float _Height;
+        public string _Type;
 
         [NonSerialized()]
         private static frmPhotograph photoDialog;
 
+        public float Width { get => _Width; set => _Width = value; }
+        public float Height { get => _Height; set => _Height = value; }
+        public string Type { get => _Type; set => _Type = value; }
+
         public override void EditDetails()
         {
-            if(photoDialog == null)
+            if (photoDialog == null)
             {
                 photoDialog = new frmPhotograph();
             }
-            photoDialog.SetDetails(_Name, _Date, _Value, _Width, _Height, _Type);
-            if(photoDialog.ShowDialog() == DialogResult.OK)
-            {
-                photoDialog.GetDetails(ref _Name, ref _Date, ref _Value, ref _Width, ref _Height, ref _Type);s
-            }
+            photoDialog.SetDetails(this);
+
         }
         
     }

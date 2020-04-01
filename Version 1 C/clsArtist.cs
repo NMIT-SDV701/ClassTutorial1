@@ -11,7 +11,7 @@ namespace Version_1_C
         
         private decimal TotalValue;
 
-        private clsWorksList _WorksList;
+        private ClsWorksList _WorksList;
         private ClsArtistList _ArtistList;
 
         // All forms should be singletons, right?
@@ -23,11 +23,11 @@ namespace Version_1_C
         public string Phone { get => _Phone; set => _Phone = value; }
         public decimal _TotalValue { get => TotalValue; }
         public ClsArtistList ArtistList { get => _ArtistList; }
-        public clsWorksList WorksList { get => _WorksList; }
+        public ClsWorksList WorksList { get => _WorksList; }
 
         public ClsArtist(ClsArtistList _ArtistList)
         {
-            _WorksList = new clsWorksList();
+            _WorksList = new ClsWorksList();
             this._ArtistList = _ArtistList;
             EditDetails();
         }
@@ -37,6 +37,11 @@ namespace Version_1_C
             artistDialog.SetDetails(this);
             TotalValue = _WorksList.GetTotalValue();
         
+        }
+
+        public bool IsDuplicate(string prArtistName)
+        {
+            return _ArtistList.ContainsKey(prArtistName);
         }
 
     }

@@ -17,20 +17,22 @@ namespace Version_1_C
             InitializeComponent();
         }
 
-        public void SetDetails(string _Name, DateTime _Date, decimal _Value, float _Weight, string _Material)
+        protected override void updateForm()
         {
-            base.SetDetails(_Name, _Date, _Value);
-            txtWeight.Text = Convert.ToString(_Weight);
-            txtMaterial.Text = _Material;
+            base.updateForm();
+            ClsSculpture lcWork = (ClsSculpture)_Work;
+            txtWeight.Text = lcWork.Weight.ToString();
+            txtMaterial.Text = lcWork.Material;
         }
 
-        public void GetDetails(ref string _Name, ref DateTime _Date, ref decimal _Value, ref float _Weight, ref string _Material)
+        protected override void pushData()
         {
-            base.GetDetails(ref _Name, ref _Date, ref _Value);
-            _Weight = Convert.ToSingle(txtWeight.Text);
-            _Material = txtMaterial.Text;
-
+            base.pushData();
+            ClsSculpture lcWork = (ClsSculpture)_Work;
+            lcWork.Weight = Single.Parse(txtWeight.Text);
+            lcWork.Material = txtMaterial.Text;
         }
+
     }
 }
 

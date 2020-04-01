@@ -1,22 +1,22 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Version_1_C
 {
     [Serializable()] 
-    public class ClsArtistList : SortedList
+    public class ClsArtistList : SortedList<string, ClsArtist>
     {
         private const string _FileName = "gallery.xml";
 
         public void EditArtist(string _Key)
         {
             ClsArtist _Artist;
-            _Artist = (ClsArtist)this[_Key];
+            _Artist = this[_Key];
             if (_Artist != null)
                 _Artist.EditDetails();
             else
-                MessageBox.Show("Sorry no artist by this name");
+                MessageBox.Show("Sorry, no artist by this name");
         }
        
         public void NewArtist()
@@ -24,9 +24,9 @@ namespace Version_1_C
             ClsArtist _Artist = new ClsArtist(this);
             try
             {
-                if (_Artist.GetKey() != "")
+                if (_Artist.Name != "")
                 {
-                    Add(_Artist.GetKey(), _Artist);
+                    Add(_Artist.Name, _Artist);
                     MessageBox.Show("Artist added!");
                 }
             }
@@ -41,7 +41,7 @@ namespace Version_1_C
             decimal _Total = 0;
             foreach (ClsArtist _Artist in Values)
             {
-                _Total += _Artist.GetWorksValue();
+                _Total += _Artist._TotalValue;
             }
             return _Total;
         }

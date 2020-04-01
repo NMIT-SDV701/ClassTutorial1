@@ -4,25 +4,25 @@ using System.Windows.Forms;
 namespace Version_1_C
 {
     [Serializable()] 
-    public class ClsSculpture : clsWork
+    public class ClsSculpture : ClsWork
     {
-        private float _Weight;
-        private string _Material;
+        public float _Weight;
+        public string _Material;
 
         [NonSerialized()]
         private static frmSculpture sculptureDialog;
 
+        public float Weight { get => _Weight; set => _Weight = value; }
+        public string Material { get => _Material; set => _Material = value; }
+
         public override void EditDetails()
         {
-            if(sculptureDialog == null)
+            if (sculptureDialog == null)
             {
                 sculptureDialog = new frmSculpture();
             }
-            sculptureDialog.SetDetails(_Name, _Date, _Value, _Weight, _Material);
-            if(sculptureDialog.ShowDialog() == DialogResult.OK)
-            {
-                sculptureDialog.GetDetails(ref _Name, ref _Date, ref _Value, ref _Weight, ref _Material);
-            }
+            sculptureDialog.SetDetails(this);
+
         }
         
     }
