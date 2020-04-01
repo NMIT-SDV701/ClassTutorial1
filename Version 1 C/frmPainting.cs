@@ -16,23 +16,24 @@ namespace Version_1_C
             InitializeComponent();
         }
 
-        public void SetDetails(string prName, DateTime prDate, decimal prValue,
-                                       float prWidth, float prHeight, string prType)
+        protected override void updateForm()
         {
-            base.SetDetails(prName, prDate, prValue);
-            txtWidth.Text = Convert.ToString(prWidth);
-            txtHeight.Text = Convert.ToString(prHeight);
-            txtType.Text = prType;
+            base.updateForm();
+            ClsPainting lcWork = (ClsPainting)_Work;
+            txtWidth.Text = lcWork.Width.ToString();
+            txtHeight.Text = lcWork.Height.ToString();
+            txtType.Text = lcWork.Type;
         }
 
-        public void GetDetails(ref string prName, ref DateTime prDate, ref decimal prValue,
-                                       ref float prWidth, ref float prHeight, ref string prType)
+        protected override void pushData()
         {
-            base.GetDetails(ref prName, ref prDate, ref prValue);
-            prWidth = Convert.ToSingle(txtWidth.Text);
-            prHeight = Convert.ToSingle(txtHeight.Text);
-            prType = txtType.Text;
+            base.pushData();
+            ClsPainting lcWork = (ClsPainting)_Work;
+            lcWork.Width = Single.Parse(txtWidth.Text);
+            lcWork.Height = Single.Parse(txtHeight.Text);
+            lcWork.Type = txtType.Text;
         }
+
     }
 }
 

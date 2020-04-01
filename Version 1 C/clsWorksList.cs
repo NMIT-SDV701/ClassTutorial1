@@ -1,18 +1,21 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Version_1_C
 {
     [Serializable()] 
-    public class clsWorksList : ArrayList
+    public class ClsWorksList : List<ClsWork>
     {
-        private static clsNameComparer theNameComparer = new clsNameComparer();
-        private static clsDateComparer theDateComparer = new clsDateComparer();
-        
+        private static ClsNameComparer _NameComparer = new ClsNameComparer();
+        private static ClsDateComparer _DateComparer = new ClsDateComparer();
+        private byte _sortOrder;
+
+        public byte SortOrder { get => _sortOrder; set => _sortOrder = value; }
+
         public void AddWork()
         {
-            clsWork lcWork = clsWork.NewWork();
+            ClsWork lcWork = ClsWork.NewWork();
             if (lcWork != null)
             {
                 Add(lcWork);
@@ -34,7 +37,7 @@ namespace Version_1_C
         {
             if (prIndex >= 0 && prIndex < this.Count)
             {
-                clsWork lcWork = (clsWork)this[prIndex];
+                ClsWork lcWork = (ClsWork)this[prIndex];
                 lcWork.EditDetails();
             }
             else
@@ -46,21 +49,21 @@ namespace Version_1_C
         public decimal GetTotalValue()
         {
             decimal lcTotal = 0;
-            foreach (clsWork lcWork in this)
+            foreach (ClsWork lcWork in this)
             {
-                lcTotal += lcWork.GetValue();
+                lcTotal += lcWork.Value;
             }
             return lcTotal;
         }
 
          public void SortByName()
          {
-             Sort(theNameComparer);
+             Sort(_NameComparer);
          }
     
         public void SortByDate()
         {
-            Sort(theDateComparer);
+            Sort(_DateComparer);
         }
     }
 }

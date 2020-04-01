@@ -4,14 +4,18 @@ using System.Windows.Forms;
 namespace Version_1_C
 {
     [Serializable()] 
-    public class clsPainting : clsWork
+    public class ClsPainting : ClsWork
     {
-        private float theWidth;
-        private float theHeight;
-        private string theType;
+        public float _Width;
+        public float _Height;
+        public string _Type;
 
         [NonSerialized()]
         private static frmPainting paintDialog;
+
+        public float Width { get => _Width; set => _Width = value; }
+        public float Height { get => _Height; set => _Height = value; }
+        public string Type { get => _Type; set => _Type = value; }
 
         public override void EditDetails()
         {
@@ -19,11 +23,8 @@ namespace Version_1_C
             {
                 paintDialog = new frmPainting();
             }
-            paintDialog.SetDetails(_Name, theDate, theValue, theWidth, theHeight, theType);
-            if(paintDialog.ShowDialog() == DialogResult.OK)
-            {
-               paintDialog.GetDetails(ref _Name, ref theDate, ref theValue, ref theWidth, ref theHeight, ref theType);
-            }
+            paintDialog.SetDetails(this);
+
         }
     }
 }
