@@ -51,6 +51,7 @@ namespace Version_1_C
             try
             {
                 System.IO.FileStream _FileStream = new System.IO.FileStream(_FileName, System.IO.FileMode.Create);
+
                 System.Runtime.Serialization.Formatters.Soap.SoapFormatter _Formatter =
                     new System.Runtime.Serialization.Formatters.Soap.SoapFormatter();
 

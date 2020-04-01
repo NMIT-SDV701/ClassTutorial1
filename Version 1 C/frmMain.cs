@@ -18,7 +18,7 @@ namespace Version_1_C
             InitializeComponent();
         }
 
-        //private ClsArtistList _ArtistList = new ClsArtistList();
+        private ClsArtistList _ArtistList = new ClsArtistList();
         
 
         private void UpdateDisplay()
@@ -73,7 +73,7 @@ namespace Version_1_C
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            Retrieve();
+            _ArtistList = ClsArtistList.Retrieve();
             UpdateDisplay();
         }
     }

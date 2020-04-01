@@ -38,6 +38,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,10 +55,10 @@
     <Compile Include="clsDateComparer.cs" />
     <Compile Include="clsNameComparer.cs" />
     <Compile Include="clsPainting.cs" />
-    <Compile Include="clsPhotograph.cs" />
-    <Compile Include="clsSculpture.cs" />
+    <Compile Include="ClsPhotograph.cs" />
+    <Compile Include="ClsSculpture.cs" />
     <Compile Include="ClsWork1.cs" />
-    <Compile Include="ClsWorksList1.cs" />
+    <Compile Include="ClsWorksList.cs" />
     <!-- To fix Form Designer problem, copy and paste from here -->
     <Compile Include="frmArtist.cs">
       <SubType>Form</SubType>
