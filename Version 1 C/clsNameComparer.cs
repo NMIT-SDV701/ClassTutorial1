@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Version_1_C
 {
-    class clsNameComparer : IComparer
+    class ClsNameComparer : IComparer
     {
         public int Compare(Object x, Object y)
         {

@@ -16,22 +16,22 @@ namespace Version_1_C
             InitializeComponent();
         }
 
-        public void SetDetails(string prName, DateTime prDate, decimal prValue,
-                                       float prWidth, float prHeight, string prType)
+        public void SetDetails(string _Name, DateTime _Date, decimal _Value,
+                                       float _Width, float _Height, string _Type)
         {
-            base.SetDetails(prName, prDate, prValue);
-            txtWidth.Text = Convert.ToString(prWidth);
-            txtHeight.Text = Convert.ToString(prHeight);
-            txtType.Text = prType;
+            base.SetDetails(_Name, _Date, _Value);
+            txtWidth.Text = Convert.ToString(_Width);
+            txtHeight.Text = Convert.ToString(_Height);
+            txtType.Text = _Type;
         }
 
-        public void GetDetails(ref string prName, ref DateTime prDate, ref decimal prValue,
-                                       ref float prWidth, ref float prHeight, ref string prType)
+        public void GetDetails(ref string _Name, ref DateTime _Date, ref decimal _Value,
+                                       ref float _Width, ref float _Height, ref string _Type)
         {
-            base.GetDetails(ref prName, ref prDate, ref prValue);
-            prWidth = Convert.ToSingle(txtWidth.Text);
-            prHeight = Convert.ToSingle(txtHeight.Text);
-            prType = txtType.Text;
+            base.GetDetails(ref _Name, ref _Date, ref _Value);
+            _Width = Convert.ToSingle(txtWidth.Text);
+            _Height = Convert.ToSingle(txtHeight.Text);
+            _Type = txtType.Text;
         }
     }
 }

@@ -16,18 +16,18 @@ namespace Version_1_C
             InitializeComponent();
         }
 
-        public void SetDetails(string prName, DateTime prDate, decimal prValue)
+        public void SetDetails(string _Name, DateTime _Date, decimal _Value)
         {
-            txtName.Text = prName;
-            txtCreation.Text = prDate.ToShortDateString();
-            txtValue.Text = Convert.ToString(prValue);
+            txtName.Text = _Name;
+            txtCreation.Text = _Date.ToShortDateString();
+            txtValue.Text = Convert.ToString(_Value);
         }
 
-        public void GetDetails(ref string prName, ref DateTime prDate, ref decimal prValue)
+        public void GetDetails(ref string _Name, ref DateTime _Date, ref decimal _Value)
         {
-            prName = txtName.Text;
-            prDate = Convert.ToDateTime(txtCreation.Text);
-            prValue = Convert.ToDecimal(txtValue.Text);
+            _Name = txtName.Text;
+            _Date = Convert.ToDateTime(txtCreation.Text);
+            _Value = Convert.ToDecimal(txtValue.Text);
         }
 
         private void btnOK_Click(object sender, EventArgs e)

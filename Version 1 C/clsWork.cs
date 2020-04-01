@@ -6,8 +6,8 @@ namespace Version_1_C
     public abstract class clsWork
     {
         protected string _Name;
-        protected DateTime theDate = DateTime.Now;
-        protected decimal theValue;
+        protected DateTime _Date = DateTime.Now;
+        protected decimal _Value;
 
         public clsWork()
         {
@@ -28,9 +28,9 @@ namespace Version_1_C
 
                  switch (char.ToUpper(lcReply))
                  {
-                     case 'P': return new clsPainting();
-                     case 'S': return new clsSculpture();
-                     case 'H': return new clsPhotograph();
+                     case 'P': return new ClsPainting();
+                     case 'S': return new ClsSculpture();
+                     case 'H': return new ClsPhotograph();
                      default: return null;
                  }
              }
@@ -43,7 +43,7 @@ namespace Version_1_C
 
         public override string ToString()
         {
-            return _Name + "\t" + theDate.ToShortDateString();  
+            return _Name + "\t" + _Date.ToShortDateString();  
         }
         
         public string GetName()
@@ -53,12 +53,12 @@ namespace Version_1_C
 
         public DateTime GetDate()
         {
-            return theDate;
+            return _Date;
         }
 
         public decimal GetValue()
         {
-            return theValue;
+            return _Value;
         }
     }
 }

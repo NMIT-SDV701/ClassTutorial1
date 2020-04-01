@@ -7,9 +7,12 @@ namespace Version_1_C
     [Serializable()] 
     public class clsWorksList : ArrayList
     {
-        private static clsNameComparer theNameComparer = new clsNameComparer();
-        private static clsDateComparer theDateComparer = new clsDateComparer();
-        
+        private static ClsNameComparer _NameComparer = new ClsNameComparer();
+        private static ClsDateComparer _DateComparer = new ClsDateComparer();
+        private byte _sortOrder;
+
+        public byte SortOrder { get => _sortOrder; set => _sortOrder = value; }
+
         public void AddWork()
         {
             clsWork lcWork = clsWork.NewWork();
@@ -55,12 +58,12 @@ namespace Version_1_C
 
          public void SortByName()
          {
-             Sort(theNameComparer);
+             Sort(_NameComparer);
          }
     
         public void SortByDate()
         {
-            Sort(theDateComparer);
+            Sort(_DateComparer);
         }
     }
 }
