@@ -9,10 +9,10 @@ namespace Version_1_C
         {
             clsWork workClassX = (clsWork)x;
             clsWork workClassY = (clsWork)y;
-            string lcNameX = workClassX.GetName();
-            string lcNameY = workClassY.GetName();
+            string _NameX = workClassX.GetName();
+            string _NameY = workClassY.GetName();
 
-            return lcNameX.CompareTo(lcNameY);
+            return _NameX.CompareTo(_NameY);
         }
     }
 }

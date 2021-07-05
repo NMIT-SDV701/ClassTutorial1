@@ -7,60 +7,63 @@ namespace Version_1_C
     [Serializable()] 
     public class clsWorksList : ArrayList
     {
-        private static clsNameComparer theNameComparer = new clsNameComparer();
-        private static clsDateComparer theDateComparer = new clsDateComparer();
-        
+        private static clsNameComparer _NameComparer = new clsNameComparer();
+        private static clsDateComparer _DateComparer = new clsDateComparer();
+        private byte sortOrder;
+
+        public byte SortOrder { get => sortOrder; set => sortOrder = value; }
+
         public void AddWork()
         {
-            clsWork lcWork = clsWork.NewWork();
-            if (lcWork != null)
+            clsWork _Work = clsWork.NewWork();
+            if (_Work != null)
             {
-                Add(lcWork);
+                Add(_Work);
             }
         }
        
-        public void DeleteWork(int prIndex)
+        public void DeleteWork(int _Index)
         {
-            if (prIndex >= 0 && prIndex < this.Count)
+            if (_Index >= 0 && _Index < this.Count)
             {
                 if (MessageBox.Show("Are you sure?", "Deleting work", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    this.RemoveAt(prIndex);
+                    this.RemoveAt(_Index);
                 }
             }
         }
         
-        public void EditWork(int prIndex)
+        public void EditWork(int _Index)
         {
-            if (prIndex >= 0 && prIndex < this.Count)
+            if (_Index >= 0 && _Index < this.Count)
             {
-                clsWork lcWork = (clsWork)this[prIndex];
-                lcWork.EditDetails();
+                clsWork _Work = (clsWork)this[_Index];
+                _Work.EditDetails();
             }
             else
             {
-                MessageBox.Show("Sorry no work selected #" + Convert.ToString(prIndex));
+                MessageBox.Show("Sorry no work selected #" + Convert.ToString(_Index));
             }
         }
 
         public decimal GetTotalValue()
         {
-            decimal lcTotal = 0;
+            decimal _Total = 0;
             foreach (clsWork lcWork in this)
             {
-                lcTotal += lcWork.GetValue();
+                _Total += lcWork.GetValue();
             }
-            return lcTotal;
+            return _Total;
         }
 
          public void SortByName()
          {
-             Sort(theNameComparer);
+             Sort(_NameComparer);
          }
     
         public void SortByDate()
         {
-            Sort(theDateComparer);
+            Sort(_DateComparer);
         }
     }
 }
